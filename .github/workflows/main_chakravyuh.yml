@@ -37,8 +37,8 @@ jobs:
           
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build 
+          yarn
+          yarn dev
 
       - name: Zip all files for upload between jobs
         # IMPORTANT: .next is a hidden folder and will NOT be included in the zip unless we specify it
