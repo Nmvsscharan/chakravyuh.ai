@@ -26,7 +26,7 @@ jobs:
 
       - name: create env file
         run: |
-          touch .env
+          touch apps/backend/.env
           echo "GROQ_API_KEY=${{ secrets.GROQ_API_KEY }}" >> .env
           echo "DEEPGRAM_API_KEY=${{ secrets.DEEPGRAM_API_KEY }}" >> .env
           echo "DEEPGRAM_VOICE_ID=${{ secrets.DEEPGRAM_VOICE_ID }}" >> .env
