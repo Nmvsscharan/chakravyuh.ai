@@ -39,18 +39,12 @@ jobs:
           
       - name: Zip all files for upload between jobs
         run: zip next.zip ./* .next .env -qr
-        
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_2D8E03F54A104892BE642945E4A7CCA8 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_74051CD16489455B842900771684C24D }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_38EEB679C50D463F8E0FC587F6702F89 }}
-          
+      
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'Chakravyuh'
           slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }} # IMPORTANT: Use your data
           package: apps/backend
