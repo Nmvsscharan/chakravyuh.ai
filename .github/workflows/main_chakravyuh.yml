@@ -36,7 +36,6 @@ jobs:
         run: |
           cd apps/backend
           yarn
-          yarn dev
 
       - name: Zip all files for upload between jobs
         run: cd apps/backend && zip -r next.zip ./*
