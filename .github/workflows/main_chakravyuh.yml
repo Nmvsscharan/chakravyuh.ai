@@ -32,7 +32,9 @@ jobs:
           NEXT_PUBLIC_API_BASE_URL: ${{ vars.DEV_NEXT_PUBLIC_API_BASE_URL }}
         run: |
           touch .env
-          echo NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL >> .env
+          echo GROQ_API_KEY=$GROQ_API_KEY >> .env
+          echo DEEPGRAM_API_KEY=$DEEPGRAM_API_KEY >> .env
+          echo DEEPGRAM_VOICE_ID=$DEEPGRAM_VOICE_ID >> .env
           echo NODE_ENV=development >> .env
           
       - name: yarn install, build, and test
