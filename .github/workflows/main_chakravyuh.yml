@@ -35,7 +35,7 @@ jobs:
           echo NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL >> .env
           echo NODE_ENV=development >> .env
           
-      - name: npm install, build, and test
+      - name: yarn install, build, and test
         run: |
           yarn
           yarn dev
