@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const backendUrl = "http://192.168.31.51:3000";
+const backendUrl = "http://localhost:3000";
 
 const SpeechContext = createContext();
 
