@@ -15,6 +15,11 @@ app.use(express.json());
 app.use(cors());
 const port = 3000;
 
+// Listen on the local network IP
+app.listen(port, "0.0.0.0", () => {
+  // console.log(`Jack is listening on port ${port}`);
+});
+
 app.get("/voices", async (req, res) => {
   res.send(await voice.getVoices(elevenLabsApiKey));
 });

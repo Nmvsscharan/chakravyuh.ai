@@ -8,7 +8,7 @@
     "apps/*"
   ],
   "scripts": {
-    "client": "yarn --cwd apps/frontend dev",
+    "client": "yarn --cwd apps/frontend dev --host",
     "server": "yarn --cwd apps/backend dev",
     "dev": "npm-run-all --parallel client server"
   },

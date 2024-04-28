@@ -1,15 +1,16 @@
 {
   "metadata": {
     "soundFile": "E:\\Major_Project_8th_Sem\\chakraview\\apps\\backend\\audios\\message_0.wav",
-    "duration": 0.88
+    "duration": 1.07
   },
   "mouthCues": [
-    { "start": 0.00, "end": 0.19, "value": "X" },
-    { "start": 0.19, "end": 0.24, "value": "B" },
-    { "start": 0.24, "end": 0.42, "value": "E" },
-    { "start": 0.42, "end": 0.56, "value": "F" },
-    { "start": 0.56, "end": 0.75, "value": "B" },
-    { "start": 0.75, "end": 0.87, "value": "C" },
-    { "start": 0.87, "end": 0.88, "value": "X" }
+    { "start": 0.00, "end": 0.05, "value": "X" },
+    { "start": 0.05, "end": 0.33, "value": "C" },
+    { "start": 0.33, "end": 0.42, "value": "A" },
+    { "start": 0.42, "end": 0.64, "value": "C" },
+    { "start": 0.64, "end": 0.78, "value": "B" },
+    { "start": 0.78, "end": 0.85, "value": "C" },
+    { "start": 0.85, "end": 1.06, "value": "B" },
+    { "start": 1.06, "end": 1.07, "value": "X" }
   ]
 }

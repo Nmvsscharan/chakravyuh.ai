@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const backendUrl = "http://localhost:3000";
+const backendUrl = "http://192.168.31.51:3000";
 
 const SpeechContext = createContext();
 
@@ -41,25 +41,24 @@ export const SpeechProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    const initializeMediaRecorder = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const newMediaRecorder = new MediaRecorder(stream);
+        newMediaRecorder.onstart = initiateRecording;
+        newMediaRecorder.ondataavailable = onDataAvailable;
+        newMediaRecorder.onstop = async () => {
+          const audioBlob = new Blob(chunks, { type: "audio/webm" });
+          await sendAudioData(audioBlob);
+        };
+        setMediaRecorder(newMediaRecorder);
+      } catch (error) {
+        console.error("Error accessing microphone:", error);
+      }
+    };
+
     if (typeof window !== "undefined") {
-      navigator.mediaDevices
-        .getUserMedia({ audio: true })
-        .then((stream) => {
-          const newMediaRecorder = new MediaRecorder(stream);
-          newMediaRecorder.onstart = initiateRecording;
-          newMediaRecorder.ondataavailable = onDataAvailable;
-          newMediaRecorder.onstop = async () => {
-            const audioBlob = new Blob(chunks, { type: "audio/webm" });
-            try {
-              await sendAudioData(audioBlob);
-            } catch (error) {
-              console.error(error);
-              alert(error.message);
-            }
-          };
-          setMediaRecorder(newMediaRecorder);
-        })
-        .catch((err) => console.error("Error accessing microphone:", err));
+      initializeMediaRecorder();
     }
   }, []);
 
